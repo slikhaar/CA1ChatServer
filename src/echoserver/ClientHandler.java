@@ -56,6 +56,7 @@ public class ClientHandler extends Thread {
     }
 
     public void send(String message) {
-        writer.println(message.toUpperCase());
+        writer.append(message.toUpperCase()+"\n");
+        writer.flush();
     }
 }
