@@ -24,9 +24,10 @@ public class ClientHandler extends Thread {
     Scanner input;
     PrintWriter writer;
     EchoServer echo;
+    String userID;
 
     public ClientHandler(Socket socket) throws IOException {
-
+        this.userID = userID;
         this.socket = socket;
         input = new Scanner(socket.getInputStream());
         writer = new PrintWriter(socket.getOutputStream(), true);
