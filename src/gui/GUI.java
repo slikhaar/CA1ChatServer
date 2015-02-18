@@ -6,8 +6,11 @@
 package gui;
 
 import echoclient.EchoClient;
+import echoserver.EchoServer;
 import echoclient.EchoListener;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,10 +20,14 @@ import java.util.logging.Logger;
  */
 public class GUI extends javax.swing.JFrame implements EchoListener {
 
+    private List<String> online = new ArrayList<>();
+    
     EchoClient echo; 
+    
     public GUI() throws IOException {
         initComponents();
         echo = new EchoClient();
+
         echo.connect("localhost", 9090);
         echo.registerEchoListener(this); //registrer denne klasse
         echo.start();
@@ -183,8 +190,8 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
         }else{
            target = jTextFieldTo.getText().toUpperCase(); 
         }
-        String temp = jTextFieldWrite.getText();
-        String message = "SEND#" + target + "#" + temp;
+        String userID = jTextFieldUserName.getText();
+        String message = "SEND#" + target + "#" + userID;
         jTextFieldTo.setText("");
         jTextFieldWrite.setText("");
         System.out.println(message);
@@ -193,11 +200,6 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
         jTextAreaMessages.append(ownmsg + "\n");
         
         
-        
-//        String message = jTextFieldWrite.getText();
-//         jTextFieldWrite.setText("");
-//         echo.send(message);
-         
     }//GEN-LAST:event_jButtonSendActionPerformed
 
     private void jTextFieldWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldWriteActionPerformed
@@ -205,15 +207,18 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     }//GEN-LAST:event_jTextFieldWriteActionPerformed
 
     private void jButtonConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConnectActionPerformed
-       String temp = jTextFieldUserName.getText().toUpperCase();
-        String CONNECT = "CONNECT#" + temp;
-        jLabelBrugerNavn.setText(temp);
+
+        String userID = jTextFieldUserName.getText().toUpperCase();
+        String CONNECT = "CONNECT#" + userID;
+        jLabelBrugerNavn.setText(userID);
         echo.send(CONNECT);
         System.out.println(CONNECT);
         jButtonConnect.setEnabled(false);
         jButtonSend.setEnabled(true);
         jButtonDisconnect.setEnabled(true);
         jTextFieldUserName.setText("");
+        
+        
     }//GEN-LAST:event_jButtonConnectActionPerformed
 
     /**
@@ -276,7 +281,11 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
 
     @Override
     public void messageArrived(String data) {
-       jTextAreaMessages.append(data + "\n");
+       if(data.startsWith("ONLINE#"))
+       {
+           jTextAreaOnlineList.setText(data.substring(7));
+       }
+       
     }
     
 
