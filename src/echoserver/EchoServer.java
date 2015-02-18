@@ -21,7 +21,7 @@ public class EchoServer {
     private static final Properties properties = Utils.initProperties("server.properties");
     private static List<ClientHandler> clientHandlers = new ArrayList<>();
     private static List<String> userID = new ArrayList<>();
-    
+     
     public static void stopServer() {
         keepRunning = false;
     }

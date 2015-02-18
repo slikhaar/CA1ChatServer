@@ -1,0 +1,22 @@
+feb. 17, 2015 12:50:34 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 17, 2015 12:50:44 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 17, 2015 12:51:00 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 17, 2015 12:51:33 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+feb. 17, 2015 12:51:33 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+feb. 17, 2015 12:51:46 PM echoserver.ClientHandler run
+INFO: Received the message: DFSDF 
+feb. 17, 2015 12:51:52 PM echoserver.ClientHandler run
+INFO: Received the message: ASDSA 
+feb. 17, 2015 12:56:31 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 17, 2015 12:56:39 PM echoserver.ClientHandler run
+INFO: Received the message: ONLINE#MUS 
+feb. 17, 2015 12:56:39 PM echoserver.ClientHandler run
+INFO: Received the message: ONLINE#MUS 
+feb. 17, 2015 12:57:02 PM echoserver.ClientHandler run
+INFO: Received the message: COOO[C[COONNNECT#MUS 

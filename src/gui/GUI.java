@@ -39,17 +39,19 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
         jButtonSend = new javax.swing.JButton();
         jTextFieldWrite = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaMessages = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jButtonConnect = new javax.swing.JButton();
         jTextFieldTo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTextAreaOnlineList = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabelBrugerNavn = new javax.swing.JLabel();
         jButtonDisconnect = new javax.swing.JButton();
+        jTextFieldUserName = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,9 +68,9 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaMessages.setColumns(20);
+        jTextAreaMessages.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaMessages);
 
         jLabel1.setText("ChatMsgs");
 
@@ -81,15 +83,19 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
 
         jLabel2.setText("Users Online");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        jTextAreaOnlineList.setColumns(20);
+        jTextAreaOnlineList.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaOnlineList);
 
         jLabel3.setText("To");
 
         jLabel4.setText("Your Message");
 
+        jLabelBrugerNavn.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
         jButtonDisconnect.setText("Disconect");
+
+        jLabel5.setText("Username");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,53 +104,55 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldTo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonSend, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonConnect))
                             .addComponent(jLabel3)
+                            .addComponent(jLabel5)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelBrugerNavn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jTextFieldWrite, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(5, 5, 5))
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldWrite, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                                .addComponent(jTextFieldUserName, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldTo, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonSend)
+                            .addComponent(jButtonConnect)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonDisconnect)
-                        .addContainerGap())))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonDisconnect)))
+                .addGap(8, 8, 8))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelBrugerNavn, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextFieldTo, jTextFieldWrite});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(9, 9, 9)
+                .addComponent(jLabelBrugerNavn, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabelBrugerNavn, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextFieldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonConnect)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldWrite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonSend)
-                            .addComponent(jButtonConnect))
+                        .addComponent(jButtonSend)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)
                         .addGap(3, 3, 3)
@@ -153,8 +161,9 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonDisconnect)))
+                        .addGap(13, 13, 13)
+                        .addComponent(jButtonDisconnect))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
 
@@ -166,9 +175,27 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendActionPerformed
-         String message = jTextFieldWrite.getText();
-         jTextFieldWrite.setText("");
-         echo.send(message);
+         String target;
+        String temptarget = jTextFieldTo.getText();
+        if(temptarget.isEmpty()){
+            target = "*";
+        }else{
+           target = jTextFieldTo.getText().toUpperCase(); 
+        }
+        String temp = jTextFieldWrite.getText();
+        String message = "SEND#" + target + "#" + temp;
+        jTextFieldTo.setText("");
+        jTextFieldWrite.setText("");
+        System.out.println(message);
+        echo.send(message);
+        String ownmsg = target + ": " + message;
+        jTextAreaMessages.append(ownmsg + "\n");
+        
+        
+        
+//        String message = jTextFieldWrite.getText();
+//         jTextFieldWrite.setText("");
+//         echo.send(message);
          
     }//GEN-LAST:event_jButtonSendActionPerformed
 
@@ -177,7 +204,7 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     }//GEN-LAST:event_jTextFieldWriteActionPerformed
 
     private void jButtonConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConnectActionPerformed
-       String temp = jTextFieldWrite.getText().toUpperCase();
+       String temp = jTextFieldUserName.getText().toUpperCase();
         String CONNECT = "CONNECT#" + temp;
         jLabelBrugerNavn.setText(temp);
         echo.send(CONNECT);
@@ -185,7 +212,7 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
         jButtonConnect.setEnabled(false);
         jButtonSend.setEnabled(true);
         jButtonDisconnect.setEnabled(true);
-        jTextFieldWrite.setText("");
+        jTextFieldUserName.setText("");
     }//GEN-LAST:event_jButtonConnectActionPerformed
 
     /**
@@ -235,17 +262,22 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelBrugerNavn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextAreaMessages;
+    private javax.swing.JTextArea jTextAreaOnlineList;
     private javax.swing.JTextField jTextFieldTo;
+    private javax.swing.JTextField jTextFieldUserName;
     private javax.swing.JTextField jTextFieldWrite;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void messageArrived(String data) {
-       jTextArea1.append(data + "\n");
+       jTextAreaMessages.append(data + "\n");
     }
+    
+
+    
 }

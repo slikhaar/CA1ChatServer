@@ -1,0 +1,18 @@
+feb. 17, 2015 11:52:20 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 17, 2015 11:52:33 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 17, 2015 11:52:35 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 17, 2015 11:53:00 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRISEN 
+feb. 17, 2015 11:53:00 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRISEN 
+feb. 17, 2015 11:53:08 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MEDISTER 
+feb. 17, 2015 11:53:08 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MEDISTER 
+feb. 17, 2015 11:54:04 PM echoserver.ClientHandler run
+INFO: Received the message: SEND#GRISEN#HEJ GRISEN. HVORDAN GÅR DET? 
+feb. 17, 2015 11:54:35 PM echoserver.ClientHandler run
+INFO: Received the message: SEND#*#TEST 

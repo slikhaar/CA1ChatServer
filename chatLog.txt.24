@@ -1,0 +1,20 @@
+feb. 17, 2015 11:35:59 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 17, 2015 11:36:08 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 17, 2015 11:36:18 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUSEN 
+feb. 17, 2015 11:36:18 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUSEN 
+feb. 17, 2015 11:36:25 PM echoserver.ClientHandler run
+INFO: Received the message: SEND#*#HEJ MUSEN 
+feb. 17, 2015 11:36:50 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 17, 2015 11:37:02 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRISEN 
+feb. 17, 2015 11:37:02 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRISEN 
+feb. 17, 2015 11:37:20 PM echoserver.ClientHandler run
+INFO: Received the message: SEND#*#HVAD LAVER DU? 
+feb. 17, 2015 11:37:35 PM echoserver.ClientHandler run
+INFO: Received the message: SEND#MUSEN# 

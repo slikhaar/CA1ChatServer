@@ -71,7 +71,7 @@ public class EchoClient extends Thread implements EchoListener {
     public static void main(String[] args) {
 
         int port = 9090;
-        String ip = "localhost";
+        String ip = "137.135.209.201";
         if (args.length == 2) {
             port = Integer.parseInt(args[0]);
             ip = args[1];
