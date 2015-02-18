@@ -175,7 +175,8 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendActionPerformed
-         String target;
+        String target;
+        
         String temptarget = jTextFieldTo.getText();
         if(temptarget.isEmpty()){
             target = "*";
