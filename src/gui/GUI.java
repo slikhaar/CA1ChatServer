@@ -227,8 +227,10 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     }//GEN-LAST:event_jButtonConnectActionPerformed
 
     private void jButtonDisconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDisconnectActionPerformed
+        
         String CLOSE = "CLOSE#";
         echo.send(CLOSE);
+        
         jButtonConnect.setEnabled(true);
         jButtonSend.setEnabled(false);
         jButtonDisconnect.setEnabled(false);
@@ -306,9 +308,7 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
             }
             jTextAreaOnlineList.setText(res.toString());
 
-        } else {
-            
-        }
+        } 
 
     }
 
