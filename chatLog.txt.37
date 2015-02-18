@@ -1,0 +1,14 @@
+feb. 18, 2015 2:14:56 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 2:14:59 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 2:15:01 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 2:15:03 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#J 
+feb. 18, 2015 2:15:03 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#J 
+feb. 18, 2015 2:15:05 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GHJ 
+feb. 18, 2015 2:15:05 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GHJ 

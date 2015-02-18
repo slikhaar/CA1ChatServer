@@ -1,0 +1,14 @@
+feb. 18, 2015 2:52:03 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 2:52:16 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 2:52:17 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 2:52:20 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GDFG 
+feb. 18, 2015 2:52:20 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GDFG 
+feb. 18, 2015 2:52:22 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#FGFDG 
+feb. 18, 2015 2:52:22 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#FGFDG 

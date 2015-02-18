@@ -1,0 +1,14 @@
+feb. 18, 2015 2:34:53 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 2:35:02 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 2:35:04 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 2:35:11 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+feb. 18, 2015 2:35:11 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+feb. 18, 2015 2:35:12 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#DFDF 
+feb. 18, 2015 2:35:12 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#DFDF 

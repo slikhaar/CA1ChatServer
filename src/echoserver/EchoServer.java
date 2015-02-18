@@ -52,11 +52,13 @@ public class EchoServer {
     private void sendOnlineMessages()
     {
         StringBuilder msg = new StringBuilder();
+        
         msg.append("ONLINE#");
         for(int i = 0; i < onlineList.size(); ++i)
         {
-            if(i > 0) msg.append(',');
+            if(i > 0) msg.append(',');         
             msg.append(onlineList.get(i));
+            
         }
         broadcast(msg.toString());
     }

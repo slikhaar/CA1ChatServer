@@ -67,9 +67,13 @@ public class ClientHandler extends Thread {
             userID = msg.substring(8);
             echo.registerUser(userID);
         }
+        else if(msg.startsWith("CLOSE#")){
+            userID = msg.substring(6);
+            echo.unregisterUser(userID);
+        }
         else
         {
             echo.broadcast(msg);
-        }
+        }       
     }
 }
