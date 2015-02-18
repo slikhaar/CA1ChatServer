@@ -5,11 +5,8 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.Utils;
@@ -20,29 +17,52 @@ public class EchoServer {
     private static ServerSocket serverSocket;
     private static final Properties properties = Utils.initProperties("server.properties");
     private static List<ClientHandler> clientHandlers = new ArrayList<>();
-    private static List<String> userID = new ArrayList<>();
-     
+    private static List<String> onlineList = new ArrayList<>();
+
     public static void stopServer() {
         keepRunning = false;
+    }
+
+    public List<String> getOnlineList() {
+        return onlineList;
     }
 
     public void removeHandler(ClientHandler ch) {
         clientHandlers.remove(ch);
     }
 
-    public void send(String msg) {
+    public void broadcast(String msg) {
         for (ClientHandler clientHandler : clientHandlers) {
             clientHandler.send(msg);
         }
     }
-
-    public void send(String sender, String msg, String target) {
-        if (clientHandlers.equals(target)) {
-
-            for (ClientHandler clientHandler : clientHandlers) {
-                clientHandler.send("MESSAGE#" + sender + "#" + msg);
-            }
+    
+    public void registerUser(String user)
+    {
+        onlineList.add(user);
+        sendOnlineMessages();
+    }
+    
+    public void unregisterUser(String user)
+    {
+        onlineList.remove(user);
+        sendOnlineMessages();
+    }
+    
+    private void sendOnlineMessages()
+    {
+        StringBuilder msg = new StringBuilder();
+        msg.append("ONLINE#");
+        for(int i = 0; i < onlineList.size(); ++i)
+        {
+            if(i > 0) msg.append(',');
+            msg.append(onlineList.get(i));
         }
+        broadcast(msg.toString());
+    }
+
+    public void privateMessage(String userID, String msg) {
+        
     }
 
     private void runServer() {

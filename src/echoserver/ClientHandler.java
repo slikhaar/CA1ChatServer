@@ -34,8 +34,6 @@ public class ClientHandler extends Thread {
         echo = new EchoServer();
 
     }
-    
-    
 
     @Override
     public void run() {
@@ -43,15 +41,16 @@ public class ClientHandler extends Thread {
         Logger.getLogger(EchoServer.class.getName()).log(Level.INFO, String.format("Received the message: %1$S ", message));
         while (!message.equals(ProtocolStrings.STOP)) {
             //writer.println(message.toUpperCase());
-            echo.send(message);
+            handleMessage(message);
             Logger.getLogger(EchoServer.class.getName()).log(Level.INFO, String.format("Received the message: %1$S ", message.toUpperCase()));
             message = input.nextLine(); //IMPORTANT blocking call
         }
         writer.println(ProtocolStrings.STOP);//Echo the stop message back to the client for a nice closedown
         echo.removeHandler(this);
+        echo.unregisterUser(userID);
         try {
             socket.close();
-            
+
         } catch (IOException ex) {
             Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -59,7 +58,18 @@ public class ClientHandler extends Thread {
     }
 
     public void send(String message) {
-        writer.append(message.toUpperCase()+"\n");
+        writer.append(message.toUpperCase() + "\n");
         writer.flush();
+    }
+
+    private void handleMessage(String msg) {
+        if (msg.startsWith("CONNECT#")) {
+            userID = msg.substring(8);
+            echo.registerUser(userID);
+        }
+        else
+        {
+            echo.broadcast(msg);
+        }
     }
 }
