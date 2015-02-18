@@ -68,7 +68,6 @@ public class ClientHandler extends Thread {
             echo.registerUser(userID);
         }
         else if(msg.startsWith("CLOSE#")){
-            userID = msg.substring(6);
             echo.unregisterUser(userID);
         }
         else

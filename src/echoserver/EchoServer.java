@@ -23,10 +23,6 @@ public class EchoServer {
         keepRunning = false;
     }
 
-    public List<String> getOnlineList() {
-        return onlineList;
-    }
-
     public void removeHandler(ClientHandler ch) {
         clientHandlers.remove(ch);
     }
