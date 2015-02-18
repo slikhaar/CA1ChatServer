@@ -5,8 +5,11 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.Utils;
@@ -17,7 +20,8 @@ public class EchoServer {
     private static ServerSocket serverSocket;
     private static final Properties properties = Utils.initProperties("server.properties");
     private static List<ClientHandler> clientHandlers = new ArrayList<>();
-
+    private static List<String> userID = new ArrayList<>();
+    
     public static void stopServer() {
         keepRunning = false;
     }
@@ -25,28 +29,22 @@ public class EchoServer {
     public void removeHandler(ClientHandler ch) {
         clientHandlers.remove(ch);
     }
-    
-    public void send(String msg){
+
+    public void send(String msg) {
         for (ClientHandler clientHandler : clientHandlers) {
             clientHandler.send(msg);
         }
     }
 
-//   private static void handleClient(Socket socket) throws IOException {
-//        Scanner input = new Scanner(socket.getInputStream());
-//        PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
-//
-//        String message = input.nextLine(); //IMPORTANT blocking call
-//        Logger.getLogger(EchoServer.class.getName()).log(Level.INFO, String.format("Received the message: %1$S ", message));
-//        while (!message.equals(ProtocolStrings.STOP)) {
-//            writer.println(message.toUpperCase());
-//            Logger.getLogger(EchoServer.class.getName()).log(Level.INFO, String.format("Received the message: %1$S ", message.toUpperCase()));
-//            message = input.nextLine(); //IMPORTANT blocking call
-//        }
-//        writer.println(ProtocolStrings.STOP);//Echo the stop message back to the client for a nice closedown
-//        socket.close();
-//        Logger.getLogger(EchoServer.class.getName()).log(Level.INFO, "Closed a Connection");
-//    }
+    public void send(String sender, String msg, String target) {
+        if (clientHandlers.equals(target)) {
+
+            for (ClientHandler clientHandler : clientHandlers) {
+                clientHandler.send("MESSAGE#" + sender + "#" + msg);
+            }
+        }
+    }
+
     private void runServer() {
 
         String logFile = properties.getProperty("logFile");
