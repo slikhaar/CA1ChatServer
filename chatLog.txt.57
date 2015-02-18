@@ -1,0 +1,16 @@
+feb. 18, 2015 4:28:03 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 4:28:09 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 4:28:10 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 4:28:13 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+feb. 18, 2015 4:28:13 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+feb. 18, 2015 4:28:22 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRIS 
+feb. 18, 2015 4:28:22 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRIS 
+feb. 18, 2015 4:28:32 PM echoserver.ClientHandler run
+INFO: Received the message: HEJSA GRIS 

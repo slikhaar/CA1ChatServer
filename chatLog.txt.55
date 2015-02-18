@@ -1,0 +1,30 @@
+feb. 18, 2015 4:10:22 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 4:10:30 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 4:10:31 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 4:10:41 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#SLIKHÅR 
+feb. 18, 2015 4:10:41 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#SLIKHÅR 
+feb. 18, 2015 4:10:50 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MINI 
+feb. 18, 2015 4:10:50 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MINI 
+feb. 18, 2015 4:11:04 PM echoserver.ClientHandler run
+INFO: Received the message: HEJSA 
+feb. 18, 2015 4:11:06 PM echoserver.ClientHandler run
+INFO: Received the message:  
+feb. 18, 2015 4:18:53 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 4:19:00 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+feb. 18, 2015 4:19:00 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+feb. 18, 2015 4:19:08 PM echoserver.ClientHandler run
+INFO: Received the message: HEJSA 
+feb. 18, 2015 4:19:15 PM echoserver.ClientHandler run
+INFO: Received the message:  
+feb. 18, 2015 4:19:20 PM echoserver.ClientHandler run
+INFO: Received the message: HEJSA 

@@ -187,24 +187,12 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendActionPerformed
-        String target;
-
-        String temptarget = jTextFieldTo.getText();
-        if (temptarget.isEmpty()) {
-            target = "*";
-        } else {
-            target = jTextFieldTo.getText().toUpperCase();
-        }
-        String userID = jTextFieldUserName.getText();
-        String message = "SEND#" + target + "#" + userID;
-        jTextFieldTo.setText("");
+        String message = jTextFieldWrite.getText();
         jTextFieldWrite.setText("");
-        System.out.println(message);
         echo.send(message);
-        String ownmsg = target + ": " + message;
-        jTextAreaMessages.append(ownmsg + "\n");
-
-
+        
+//        String msg = message;
+//        jTextAreaMessages.append(msg + "\n");
     }//GEN-LAST:event_jButtonSendActionPerformed
 
     private void jTextFieldWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldWriteActionPerformed
@@ -309,7 +297,9 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
             jTextAreaOnlineList.setText(res.toString());
 
         } 
-
+        jTextAreaMessages.append(data + "\n");
     }
+    
+    
 
 }
