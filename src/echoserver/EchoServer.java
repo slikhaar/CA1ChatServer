@@ -5,7 +5,9 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +20,8 @@ public class EchoServer {
     private static final Properties properties = Utils.initProperties("server.properties");
     private static List<ClientHandler> clientHandlers = new ArrayList<>();
     private static List<String> onlineList = new ArrayList<>();
+    private static Map<String, ClientHandler> handlers = new HashMap<>();
+
 
     public static void stopServer() {
         keepRunning = false;
@@ -38,11 +42,25 @@ public class EchoServer {
         onlineList.add(user);
         sendOnlineMessages();
     }
+    public void addUser(String user, ClientHandler handler){
+        System.out.println(user + ":" + handler);
+    handlers.put(user, handler);
+    }
     
     public void unregisterUser(String user)
-    {
-        onlineList.remove(user);
+    {    
+        
+        onlineList.remove(user);        
+//        sendOfflineMessages(user);
         sendOnlineMessages();
+        
+    }
+    
+  private void sendOfflineMessages(String user)
+    {
+        StringBuilder msg = new StringBuilder();      
+        msg.append("OFFLINE");
+        broadcast(msg.toString());
     }
     
     private void sendOnlineMessages()
@@ -60,7 +78,20 @@ public class EchoServer {
     }
 
     public void privateMessage(String userID, String msg) {
+        String arr[] = msg.split("#");
+        String message = arr[2];
+        System.out.println(message+":    "+msg);
+        String recievers[] = arr[1].split(",");
+        for (String reciever : recievers) {
+            System.out.println(reciever);
+                    
+             ClientHandler clientHandler = handlers.get(reciever);
+             clientHandler.send(message);
+        }
         
+        
+        
+//        clientHandler.send(msg)
     }
 
     private void runServer() {

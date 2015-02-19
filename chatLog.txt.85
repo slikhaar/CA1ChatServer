@@ -1,0 +1,12 @@
+feb. 18, 2015 11:29:36 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 11:29:43 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 11:29:54 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 11:30:04 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#NINJA 
+feb. 18, 2015 11:30:04 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#NINJA 
+feb. 18, 2015 11:30:05 PM echoserver.ClientHandler run
+INFO: Received the message: CLOSE#NINJA 

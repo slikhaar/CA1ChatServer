@@ -8,7 +8,6 @@ package echoserver;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,7 +46,7 @@ public class ClientHandler extends Thread {
         }
         writer.println(ProtocolStrings.STOP);//Echo the stop message back to the client for a nice closedown
         echo.removeHandler(this);
-        echo.unregisterUser(userID);
+//        echo.unregisterUser(userID);
         try {
             socket.close();
 
@@ -58,7 +57,8 @@ public class ClientHandler extends Thread {
     }
 
     public void send(String message) {
-        writer.append(message.toUpperCase() + "\n");
+        writer.append(message + "\n");
+//        writer.println(message);
         writer.flush();
     }
 
@@ -66,9 +66,15 @@ public class ClientHandler extends Thread {
         if (msg.startsWith("CONNECT#")) {
             userID = msg.substring(8);
             echo.registerUser(userID);
+            echo.addUser(userID, this);
         }
         else if(msg.startsWith("CLOSE#")){
+            userID = msg.substring(6);
             echo.unregisterUser(userID);
+        }
+        else if(msg.startsWith("SEND#")){
+            userID = msg.substring(5);
+            echo.privateMessage(userID, msg);
         }
         else
         {

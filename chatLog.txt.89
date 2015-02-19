@@ -1,0 +1,10 @@
+feb. 18, 2015 11:48:31 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 11:48:37 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 11:48:45 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#DEXTER 
+feb. 18, 2015 11:48:45 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#DEXTER 
+feb. 18, 2015 11:48:46 PM echoserver.ClientHandler run
+INFO: Received the message: CLOSE# 

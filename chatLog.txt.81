@@ -1,0 +1,16 @@
+feb. 18, 2015 11:05:36 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 11:05:45 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 11:05:55 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 11:06:08 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#BONUS 
+feb. 18, 2015 11:06:08 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#BONUS 
+feb. 18, 2015 11:06:16 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#URANUS 
+feb. 18, 2015 11:06:16 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#URANUS 
+feb. 18, 2015 11:06:30 PM echoserver.ClientHandler run
+INFO: Received the message: CLOSE# 

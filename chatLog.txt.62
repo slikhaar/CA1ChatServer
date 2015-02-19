@@ -1,0 +1,22 @@
+feb. 18, 2015 6:41:23 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 6:41:30 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 6:41:31 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 6:41:42 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 6:42:12 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#PAPAYA 
+feb. 18, 2015 6:42:12 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#PAPAYA 
+feb. 18, 2015 6:42:16 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MANGO 
+feb. 18, 2015 6:42:16 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MANGO 
+feb. 18, 2015 6:42:20 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#DIABLO 
+feb. 18, 2015 6:42:20 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#DIABLO 
+feb. 18, 2015 6:42:37 PM echoserver.ClientHandler run
+INFO: Received the message: : HEJ ALLE SAMMEN! 

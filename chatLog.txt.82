@@ -1,0 +1,18 @@
+feb. 18, 2015 11:21:14 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 11:21:19 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 11:21:20 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 11:21:32 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#NUSER 
+feb. 18, 2015 11:21:32 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#NUSER 
+feb. 18, 2015 11:21:37 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#BUNNY 
+feb. 18, 2015 11:21:37 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#BUNNY 
+feb. 18, 2015 11:21:43 PM echoserver.ClientHandler run
+INFO: Received the message: CLOSE#BUNNY 
+feb. 18, 2015 11:21:52 PM echoserver.ClientHandler run
+INFO: Received the message: CLOSE#NUSER 

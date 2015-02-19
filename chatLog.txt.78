@@ -1,0 +1,16 @@
+feb. 18, 2015 8:14:46 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 8:14:52 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 8:14:58 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MANGO 
+feb. 18, 2015 8:14:58 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MANGO 
+feb. 18, 2015 8:15:08 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 8:15:18 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#PAPAYA 
+feb. 18, 2015 8:15:18 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#PAPAYA 
+feb. 18, 2015 8:15:37 PM echoserver.ClientHandler run
+INFO: Received the message: SEND#MANGOHEJ MANGO 

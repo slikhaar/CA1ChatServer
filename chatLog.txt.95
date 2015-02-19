@@ -1,0 +1,10 @@
+feb. 19, 2015 12:22:44 AM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 19, 2015 12:22:48 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 19, 2015 12:22:54 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GUCCA 
+feb. 19, 2015 12:22:54 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GUCCA 
+feb. 19, 2015 12:22:55 AM echoserver.ClientHandler run
+INFO: Received the message: CLOSE# 

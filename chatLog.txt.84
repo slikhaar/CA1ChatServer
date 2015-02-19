@@ -1,0 +1,14 @@
+feb. 18, 2015 11:28:02 PM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 18, 2015 11:28:10 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 11:28:14 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 11:28:18 PM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 18, 2015 11:28:33 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#FIGEN 
+feb. 18, 2015 11:28:33 PM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#FIGEN 
+feb. 18, 2015 11:28:34 PM echoserver.ClientHandler run
+INFO: Received the message: CLOSE#FIGEN 

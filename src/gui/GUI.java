@@ -6,11 +6,9 @@
 package gui;
 
 import echoclient.EchoClient;
-import echoserver.EchoServer;
 import echoclient.EchoListener;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,17 +18,16 @@ import java.util.logging.Logger;
  */
 public class GUI extends javax.swing.JFrame implements EchoListener {
 
-    private List<String> online = new ArrayList<>();
-
     EchoClient echo;
+
 
     public GUI() throws IOException {
         initComponents();
         echo = new EchoClient();
-
         echo.connect("localhost", 9090);
         echo.registerEchoListener(this); //registrer denne klasse
         echo.start();
+        
 
     }
 
@@ -189,10 +186,13 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     private void jButtonSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendActionPerformed
         String message = jTextFieldWrite.getText();
         jTextFieldWrite.setText("");
-        echo.send(message);
         
-//        String msg = message;
-//        jTextAreaMessages.append(msg + "\n");
+        String reciever = jTextFieldTo.getText();
+        
+        String name = jLabelBrugerNavn.getText();
+        String SEND = "SEND#" + reciever + "#"+ message;
+
+        echo.send(SEND);
     }//GEN-LAST:event_jButtonSendActionPerformed
 
     private void jTextFieldWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldWriteActionPerformed
@@ -200,8 +200,7 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     }//GEN-LAST:event_jTextFieldWriteActionPerformed
 
     private void jButtonConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConnectActionPerformed
-
-        String userID = jTextFieldUserName.getText().toUpperCase();
+        String userID = jTextFieldUserName.getText();
         String CONNECT = "CONNECT#" + userID;
         jLabelBrugerNavn.setText(userID);
         echo.send(CONNECT);
@@ -215,10 +214,11 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     }//GEN-LAST:event_jButtonConnectActionPerformed
 
     private void jButtonDisconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDisconnectActionPerformed
-        
-        String CLOSE = "CLOSE#";
+        String bruger;
+        bruger = jLabelBrugerNavn.getText();
+        String CLOSE = "CLOSE#" + bruger;
         echo.send(CLOSE);
-        
+
         jButtonConnect.setEnabled(true);
         jButtonSend.setEnabled(false);
         jButtonDisconnect.setEnabled(false);
@@ -295,11 +295,22 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
                 res.append("\n");
             }
             jTextAreaOnlineList.setText(res.toString());
+        }
+          if (data.startsWith("OFFLINE#")) {
+            String tmp = data.substring(8);
 
-        } 
+            String[] names = tmp.split(",");
+
+            StringBuilder res = new StringBuilder();
+            for (String name : names) {
+                res.append(name);
+                res.append("\n");
+            }
+            jTextAreaOnlineList.setText(res.toString());            
+        }
+        
+
         jTextAreaMessages.append(data + "\n");
     }
-    
-    
 
 }
