@@ -77,11 +77,8 @@ public class EchoServer {
         broadcast(msg.toString());
     }
 
-    public void privateMessage(String userID, String msg) {
-        String arr[] = msg.split("#");
-        String message = arr[2];
-        System.out.println(message+":    "+msg);
-        String recievers[] = arr[1].split(",");
+    public void privateMessage(String userID, String recs, String message) {
+        String recievers[] = recs.split(",");
         for (String reciever : recievers) {
             System.out.println(reciever);
                     

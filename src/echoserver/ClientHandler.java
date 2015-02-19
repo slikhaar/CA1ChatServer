@@ -63,18 +63,22 @@ public class ClientHandler extends Thread {
     }
 
     private void handleMessage(String msg) {
-        if (msg.startsWith("CONNECT#")) {
-            userID = msg.substring(8);
+        String arr[] = msg.split("#");
+        String token = arr[0];
+        
+        if (token.equals("CONNECT")) {
+            userID = arr[1];
+            
             echo.registerUser(userID);
             echo.addUser(userID, this);
         }
-        else if(msg.startsWith("CLOSE#")){
-            userID = msg.substring(6);
+        else if(token.equals("CLOSE")){          
             echo.unregisterUser(userID);
         }
-        else if(msg.startsWith("SEND#")){
-            userID = msg.substring(5);
-            echo.privateMessage(userID, msg);
+        else if(token.equals("SEND")){
+            String recievers = arr[1];
+            String message = arr[2];
+            echo.privateMessage(userID, recievers, message);
         }
         else
         {

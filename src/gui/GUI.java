@@ -188,8 +188,7 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
         jTextFieldWrite.setText("");
         
         String reciever = jTextFieldTo.getText();
-        
-        String name = jLabelBrugerNavn.getText();
+       
         String SEND = "SEND#" + reciever + "#"+ message;
 
         echo.send(SEND);
