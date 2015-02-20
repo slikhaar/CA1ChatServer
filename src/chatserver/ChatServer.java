@@ -1,4 +1,4 @@
-package echoserver;
+package chatserver;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.Utils;
 
-public class EchoServer {
+public class ChatServer {
 
     private static boolean keepRunning = true;
     private static ServerSocket serverSocket;
@@ -71,31 +71,31 @@ public class EchoServer {
 
     private void runServer() {
         String logFile = properties.getProperty("logFile");
-        Utils.setLogFile(logFile, EchoServer.class.getName());
+        Utils.setLogFile(logFile, ChatServer.class.getName());
 
         int port = Integer.parseInt(properties.getProperty("port"));
         String ip = properties.getProperty("serverIp");
 
-        Logger.getLogger(EchoServer.class.getName()).log(Level.INFO, "Sever started. Listening on: " + port + ", bound to: " + ip);
+        Logger.getLogger(ChatServer.class.getName()).log(Level.INFO, "Sever started. Listening on: " + port + ", bound to: " + ip);
         try {
             serverSocket = new ServerSocket();
             serverSocket.bind(new InetSocketAddress(ip, port));
             do {
                 Socket socket = serverSocket.accept(); //Important Blocking call
-                Logger.getLogger(EchoServer.class.getName()).log(Level.INFO, "Connected to a client");
+                Logger.getLogger(ChatServer.class.getName()).log(Level.INFO, "Connected to a client");
                 ClientHandler client = new ClientHandler(socket);
 //                clientHandlers.add(client);                
                 client.start();
 
             } while (keepRunning);
         } catch (IOException ex) {
-            Logger.getLogger(EchoServer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ChatServer.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            Utils.closeLogger(EchoServer.class.getName());
+            Utils.closeLogger(ChatServer.class.getName());
         }
     }
 
     public static void main(String[] args) {
-        new EchoServer().runServer();
+        new ChatServer().runServer();
     }
 }

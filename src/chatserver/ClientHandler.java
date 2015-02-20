@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package echoserver;
+package chatserver;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,35 +22,35 @@ public class ClientHandler extends Thread {
     Socket socket;
     Scanner input;
     PrintWriter writer;
-    EchoServer echo;
+    ChatServer chat;
     String userID;
 
     public ClientHandler(Socket socket) throws IOException {
         this.socket = socket;
         input = new Scanner(socket.getInputStream());
         writer = new PrintWriter(socket.getOutputStream(), true);
-        echo = new EchoServer();
+        chat = new ChatServer();
 
     }
 
     @Override
     public void run() {
         String message = input.nextLine(); //IMPORTANT blocking call
-        Logger.getLogger(EchoServer.class.getName()).log(Level.INFO, String.format("Received the message: %1$S ", message));
+        Logger.getLogger(ChatServer.class.getName()).log(Level.INFO, String.format("Received the message: %1$S ", message));
         while (!message.equals(ProtocolStrings.STOP)) {
             //writer.println(message.toUpperCase());
             handleMessage(message);
-            Logger.getLogger(EchoServer.class.getName()).log(Level.INFO, String.format("Received the message: %1$S ", message.toUpperCase()));
+            Logger.getLogger(ChatServer.class.getName()).log(Level.INFO, String.format("Received the message: %1$S ", message.toUpperCase()));
             message = input.nextLine(); //IMPORTANT blocking call
         }
-        writer.println(ProtocolStrings.STOP);//Echo the stop message back to the client for a nice closedown
-        echo.removeHandler(this);
+        writer.println(ProtocolStrings.STOP);//Chat the stop message back to the client for a nice closedown
+        chat.removeHandler(this);
         try {
             socket.close();
         } catch (IOException ex) {
             Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Logger.getLogger(EchoServer.class.getName()).log(Level.INFO, "Closed a Connection");
+        Logger.getLogger(ChatServer.class.getName()).log(Level.INFO, "Closed a Connection");
     }
 
     public void send(String message) {
@@ -64,15 +64,15 @@ public class ClientHandler extends Thread {
 
         if (token.equals("CONNECT")) {
             userID = arr[1];
-            echo.addUser(userID, this);
+            chat.addUser(userID, this);
         } else if (token.equals("CLOSE")) {
-            echo.removeUser(userID);
+            chat.removeUser(userID);
         } else if (token.equals("SEND")) {
             String recievers = arr[1];
             String message = arr[2];
-            echo.privateMessage(userID, recievers, message);
+            chat.privateMessage(userID, recievers, message);
         } else {
-            echo.broadcast(msg);
+            chat.broadcast(msg);
         }
     }
 }

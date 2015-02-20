@@ -1,4 +1,4 @@
-package echoclient;
+package chatclient;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import shared.ProtocolStrings;
 
-public class EchoClient extends Thread implements EchoListener {
+public class ChatClient extends Thread implements ChatListener {
 
     Socket socket;
     private int port;
@@ -20,20 +20,20 @@ public class EchoClient extends Thread implements EchoListener {
     private InetAddress serverAddress;
     private Scanner input;
     private PrintWriter output;
-    List<EchoListener> listeners = new ArrayList();
-    EchoListener echo;
+    List<ChatListener> listeners = new ArrayList();
+    ChatListener chat;
 
     private void notifyListeners(String msg) {
-        for (EchoListener listener : listeners) {
+        for (ChatListener listener : listeners) {
             listener.messageArrived(msg);
         }
     }
 
-    public void registerEchoListener(EchoListener l) {
+    public void registerChatListener(ChatListener l) {
         listeners.add(l);
     }
 
-    public void unRegisterEchoListener(EchoListener l) {
+    public void unRegisterChatListener(ChatListener l) {
         listeners.remove(l);
     }
 
@@ -44,8 +44,6 @@ public class EchoClient extends Thread implements EchoListener {
         socket = new Socket(serverAddress, port);
         input = new Scanner(socket.getInputStream());
         output = new PrintWriter(socket.getOutputStream(), true);  //Set to true, to get auto flush behaviour
-        
-
     }
 
     public void send(String msg) {
@@ -67,7 +65,7 @@ public class EchoClient extends Thread implements EchoListener {
         try {
             socket.close();
         } catch (IOException ex) {
-            Logger.getLogger(EchoClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ChatClient.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -81,8 +79,8 @@ public class EchoClient extends Thread implements EchoListener {
         }
         try {
 
-            EchoClient tester = new EchoClient();
-            tester.registerEchoListener(tester);
+            ChatClient tester = new ChatClient();
+            tester.registerChatListener(tester);
             tester.connect(ip, port);
             System.out.println("Sending 'Hello world'");
             tester.send("Hello World");
@@ -92,10 +90,10 @@ public class EchoClient extends Thread implements EchoListener {
             //System.in.read();      
 
         } catch (UnknownHostException ex) {
-            Logger.getLogger(EchoClient.class
+            Logger.getLogger(ChatClient.class
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(EchoClient.class
+            Logger.getLogger(ChatClient.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -106,7 +104,7 @@ public class EchoClient extends Thread implements EchoListener {
 
     }
 
-    public void stopEcho() {
+    public void stopChat() {
         output.println(ProtocolStrings.STOP);
     }
 }

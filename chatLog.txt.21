@@ -1,0 +1,38 @@
+Feb 20, 2015 11:35:39 AM chatserver.ChatServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+Feb 20, 2015 11:35:50 AM chatserver.ChatServer runServer
+INFO: Connected to a client
+Feb 20, 2015 11:35:55 AM chatserver.ChatServer runServer
+INFO: Connected to a client
+Feb 20, 2015 11:35:56 AM chatserver.ChatServer runServer
+INFO: Connected to a client
+Feb 20, 2015 11:36:05 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+Feb 20, 2015 11:36:05 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+Feb 20, 2015 11:36:11 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#ÆLLING 
+Feb 20, 2015 11:36:11 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#ÆLLING 
+Feb 20, 2015 11:36:18 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#BAMSE 
+Feb 20, 2015 11:36:18 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#BAMSE 
+Feb 20, 2015 11:36:25 AM chatserver.ChatServer runServer
+INFO: Connected to a client
+Feb 20, 2015 11:36:30 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#KYLLING 
+Feb 20, 2015 11:36:30 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#KYLLING 
+Feb 20, 2015 11:36:55 AM chatserver.ClientHandler run
+INFO: Received the message: SEND#BAMSE#HEJ BAMSE 
+Feb 20, 2015 11:37:04 AM chatserver.ClientHandler run
+INFO: Received the message: SEND#*#HEJ ALLESAMMEN 
+Feb 20, 2015 11:37:14 AM chatserver.ClientHandler run
+INFO: Received the message: CLOSE#MUS 
+Feb 20, 2015 11:40:07 AM chatserver.ClientHandler run
+INFO: Received the message: CLOSE#BAMSE 
+Feb 20, 2015 11:40:26 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#HJHJ 
+Feb 20, 2015 11:41:13 AM chatserver.ChatServer runServer
+INFO: Connected to a client

@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package echoclient;
+package chatclient;
 
 /**
  *
  * @author Afrooz
  */
+public interface ChatListener {
 
-
-public interface EchoListener {
-void messageArrived (String data);
+    void messageArrived(String data);
 }

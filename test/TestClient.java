@@ -1,7 +1,7 @@
 
-import echoclient.EchoClient;
-import echoclient.EchoListener;
-import echoserver.EchoServer;
+import chatclient.ChatClient;
+import chatclient.ChatListener;
+import chatserver.ChatServer;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -27,14 +27,14 @@ public class TestClient {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                EchoServer.main(null);
+                ChatServer.main(null);
             }
         }).start();
     }
 
     @AfterClass
     public static void tearDownClass() {
-        EchoServer.stopServer();
+        ChatServer.stopServer();
     }
 
     @Before
@@ -45,10 +45,10 @@ public class TestClient {
     public void sendMessage() throws IOException, InterruptedException {
         lock = new CountDownLatch(1);
         testResult = "";
-        EchoClient tester = new EchoClient();
+        ChatClient tester = new ChatClient();
         tester.connect("localhost", 9090);
 
-        tester.registerEchoListener(new EchoListener() {
+        tester.registerChatListener(new ChatListener() {
             @Override
             public void messageArrived(String data) {
                 testResult = data;
@@ -59,7 +59,7 @@ public class TestClient {
         tester.send("Hello");
         lock.await(1000, TimeUnit.MILLISECONDS);
         assertEquals("HELLO", testResult);
-        tester.stopEcho();
+        tester.stopChat();
     }
 
 }
