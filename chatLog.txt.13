@@ -1,0 +1,32 @@
+feb. 20, 2015 10:15:37 AM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 20, 2015 10:15:44 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 20, 2015 10:15:48 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 20, 2015 10:15:55 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 20, 2015 10:16:11 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 20, 2015 10:16:30 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRIS 
+feb. 20, 2015 10:16:30 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRIS 
+feb. 20, 2015 10:16:38 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#KO 
+feb. 20, 2015 10:16:38 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#KO 
+feb. 20, 2015 10:16:39 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#KYLLING 
+feb. 20, 2015 10:16:39 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#KYLLING 
+feb. 20, 2015 10:16:47 AM echoserver.ClientHandler run
+INFO: Received the message: SEND#*#HEJ ALLE SAMMEN 
+feb. 20, 2015 10:17:17 AM echoserver.ClientHandler run
+INFO: Received the message: SEND#KO#HEJ KO 
+feb. 20, 2015 10:17:21 AM echoserver.ClientHandler run
+INFO: Received the message: CLOSE#GRIS 
+feb. 20, 2015 10:17:22 AM echoserver.ClientHandler run
+INFO: Received the message: CLOSE#KO 
+feb. 20, 2015 10:17:23 AM echoserver.ClientHandler run
+INFO: Received the message: CLOSE#KYLLING 

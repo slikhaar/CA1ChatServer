@@ -1,0 +1,30 @@
+feb. 20, 2015 9:42:36 AM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 20, 2015 9:43:32 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 20, 2015 9:43:43 AM echoserver.ClientHandler run
+INFO: Received the message: #CONNECT#MUS 
+feb. 20, 2015 9:43:43 AM echoserver.ClientHandler run
+INFO: Received the message: #CONNECT#MUS 
+feb. 20, 2015 9:43:56 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 20, 2015 9:44:03 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+feb. 20, 2015 9:44:03 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+feb. 20, 2015 9:44:17 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 20, 2015 9:44:27 AM echoserver.ClientHandler run
+INFO: Received the message: ON 
+feb. 20, 2015 9:44:27 AM echoserver.ClientHandler run
+INFO: Received the message: ON 
+feb. 20, 2015 9:44:45 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 20, 2015 9:44:51 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRIS 
+feb. 20, 2015 9:44:51 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRIS 
+feb. 20, 2015 9:45:09 AM echoserver.ClientHandler run
+INFO: Received the message: SEND#MUS#HEJ 
+feb. 20, 2015 9:45:21 AM echoserver.ClientHandler run
+INFO: Received the message: SEND#*#HEJ ALLE 

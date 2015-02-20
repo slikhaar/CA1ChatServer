@@ -1,0 +1,12 @@
+feb. 20, 2015 10:44:54 AM echoserver.EchoServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+feb. 20, 2015 10:45:04 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 20, 2015 10:45:10 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 20, 2015 10:45:13 AM echoserver.EchoServer runServer
+INFO: Connected to a client
+feb. 20, 2015 10:45:22 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRIS 
+feb. 20, 2015 10:45:22 AM echoserver.ClientHandler run
+INFO: Received the message: CONNECT#GRIS 

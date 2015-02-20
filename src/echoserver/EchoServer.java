@@ -18,81 +18,58 @@ public class EchoServer {
     private static boolean keepRunning = true;
     private static ServerSocket serverSocket;
     private static final Properties properties = Utils.initProperties("server.properties");
-    private static List<ClientHandler> clientHandlers = new ArrayList<>();
-    private static List<String> onlineList = new ArrayList<>();
     private static Map<String, ClientHandler> handlers = new HashMap<>();
-
 
     public static void stopServer() {
         keepRunning = false;
     }
 
     public void removeHandler(ClientHandler ch) {
-        clientHandlers.remove(ch);
+        handlers.remove(ch.userID);
     }
 
     public void broadcast(String msg) {
-        for (ClientHandler clientHandler : clientHandlers) {
+        for (ClientHandler clientHandler : handlers.values()) {
             clientHandler.send(msg);
         }
     }
-    
-    public void registerUser(String user)
-    {
-        onlineList.add(user);
-        sendOnlineMessages();
-    }
-    public void addUser(String user, ClientHandler handler){
+
+    public void addUser(String user, ClientHandler handler) {
         System.out.println(user + ":" + handler);
-    handlers.put(user, handler);
-    }
-    
-    public void unregisterUser(String user)
-    {    
-        
-        onlineList.remove(user);        
-//        sendOfflineMessages(user);
+        handlers.put(user, handler);
         sendOnlineMessages();
-        
     }
-    
-  private void sendOfflineMessages(String user)
-    {
-        StringBuilder msg = new StringBuilder();      
-        msg.append("OFFLINE");
-        broadcast(msg.toString());
+
+    public void removeUser(String user) {
+        handlers.remove(user);
+        sendOnlineMessages();
     }
-    
-    private void sendOnlineMessages()
-    {
+
+    private void sendOnlineMessages() {
         StringBuilder msg = new StringBuilder();
-        
         msg.append("ONLINE#");
-        for(int i = 0; i < onlineList.size(); ++i)
-        {
-            if(i > 0) msg.append(',');         
-            msg.append(onlineList.get(i));
-            
+        for (String userName : handlers.keySet()) {
+            msg.append(userName);
+            msg.append(",");
         }
-        broadcast(msg.toString());
+        String temp = msg.substring(0, msg.lastIndexOf(","));
+        broadcast(temp);
     }
 
     public void privateMessage(String userID, String recs, String message) {
-        String recievers[] = recs.split(",");
-        for (String reciever : recievers) {
-            System.out.println(reciever);
-                    
-             ClientHandler clientHandler = handlers.get(reciever);
-             clientHandler.send(message);
+        if (recs.equals("*")) {
+            broadcast(message);
+        } else {
+            String recievers[] = recs.split(",");
+            for (String reciever : recievers) {
+                System.out.println(reciever);
+                ClientHandler clientHandler = handlers.get(reciever);
+                clientHandler.send(message);
+            }
         }
-        
-        
-        
-//        clientHandler.send(msg)
     }
 
     private void runServer() {
-
         String logFile = properties.getProperty("logFile");
         Utils.setLogFile(logFile, EchoServer.class.getName());
 
@@ -107,7 +84,7 @@ public class EchoServer {
                 Socket socket = serverSocket.accept(); //Important Blocking call
                 Logger.getLogger(EchoServer.class.getName()).log(Level.INFO, "Connected to a client");
                 ClientHandler client = new ClientHandler(socket);
-                clientHandlers.add(client);
+//                clientHandlers.add(client);                
                 client.start();
 
             } while (keepRunning);
@@ -119,9 +96,6 @@ public class EchoServer {
     }
 
     public static void main(String[] args) {
-
         new EchoServer().runServer();
-
     }
-
 }

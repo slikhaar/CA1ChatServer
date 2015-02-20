@@ -20,14 +20,12 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
 
     EchoClient echo;
 
-
     public GUI() throws IOException {
         initComponents();
         echo = new EchoClient();
         echo.connect("localhost", 9090);
         echo.registerEchoListener(this); //registrer denne klasse
         echo.start();
-        
 
     }
 
@@ -184,14 +182,23 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendActionPerformed
+        String reciever;
         String message = jTextFieldWrite.getText();
+        String to = jTextFieldTo.getText();
+
+        if (to.isEmpty()) {
+            reciever = "*";
+        } else {
+            reciever = jTextFieldTo.getText();
+        }
+
+        String SEND = "SEND#" + reciever + "#" + message;
+        jTextFieldTo.setText("");
         jTextFieldWrite.setText("");
-        
-        String reciever = jTextFieldTo.getText();
-       
-        String SEND = "SEND#" + reciever + "#"+ message;
 
         echo.send(SEND);
+
+
     }//GEN-LAST:event_jButtonSendActionPerformed
 
     private void jTextFieldWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldWriteActionPerformed
@@ -295,7 +302,7 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
             }
             jTextAreaOnlineList.setText(res.toString());
         }
-          if (data.startsWith("OFFLINE#")) {
+        if (data.startsWith("OFFLINE#")) {
             String tmp = data.substring(8);
 
             String[] names = tmp.split(",");
@@ -305,9 +312,8 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
                 res.append(name);
                 res.append("\n");
             }
-            jTextAreaOnlineList.setText(res.toString());            
+            jTextAreaOnlineList.setText(res.toString());
         }
-        
 
         jTextAreaMessages.append(data + "\n");
     }

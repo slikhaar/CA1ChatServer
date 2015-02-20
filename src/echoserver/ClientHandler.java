@@ -26,7 +26,6 @@ public class ClientHandler extends Thread {
     String userID;
 
     public ClientHandler(Socket socket) throws IOException {
-        this.userID = userID;
         this.socket = socket;
         input = new Scanner(socket.getInputStream());
         writer = new PrintWriter(socket.getOutputStream(), true);
@@ -46,10 +45,8 @@ public class ClientHandler extends Thread {
         }
         writer.println(ProtocolStrings.STOP);//Echo the stop message back to the client for a nice closedown
         echo.removeHandler(this);
-//        echo.unregisterUser(userID);
         try {
             socket.close();
-
         } catch (IOException ex) {
             Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -58,31 +55,24 @@ public class ClientHandler extends Thread {
 
     public void send(String message) {
         writer.append(message + "\n");
-//        writer.println(message);
         writer.flush();
     }
 
     private void handleMessage(String msg) {
         String arr[] = msg.split("#");
         String token = arr[0];
-        
+
         if (token.equals("CONNECT")) {
             userID = arr[1];
-            
-            echo.registerUser(userID);
             echo.addUser(userID, this);
-        }
-        else if(token.equals("CLOSE")){          
-            echo.unregisterUser(userID);
-        }
-        else if(token.equals("SEND")){
+        } else if (token.equals("CLOSE")) {
+            echo.removeUser(userID);
+        } else if (token.equals("SEND")) {
             String recievers = arr[1];
             String message = arr[2];
             echo.privateMessage(userID, recievers, message);
-        }
-        else
-        {
+        } else {
             echo.broadcast(msg);
-        }       
+        }
     }
 }
