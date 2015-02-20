@@ -5,8 +5,8 @@
  */
 package gui;
 
-import echoclient.EchoClient;
-import echoclient.EchoListener;
+import chatclient.ChatClient;
+import chatclient.ChatListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -16,17 +16,17 @@ import java.util.logging.Logger;
  *
  * @author Afrooz
  */
-public class GUI extends javax.swing.JFrame implements EchoListener {
-
-    EchoClient echo;
-
+public class GUI extends javax.swing.JFrame implements ChatListener {
+    
+    ChatClient chat;
+    
     public GUI() throws IOException {
         initComponents();
-        echo = new EchoClient();
-        echo.connect("localhost", 9090);
-        echo.registerEchoListener(this); //registrer denne klasse
-        echo.start();
-
+        chat = new ChatClient();
+        chat.connect("localhost", 9090);
+        chat.registerChatListener(this); //registrer denne klasse
+        chat.start();
+        
     }
 
     /**
@@ -185,49 +185,49 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
         String reciever;
         String message = jTextFieldWrite.getText();
         String to = jTextFieldTo.getText();
-
+        
         if (to.isEmpty()) {
             reciever = "*";
         } else {
             reciever = jTextFieldTo.getText();
         }
-
+        
         String SEND = "SEND#" + reciever + "#" + message;
         jTextFieldTo.setText("");
         jTextFieldWrite.setText("");
-
-        echo.send(SEND);
-
-
+        
+        chat.send(SEND);
+        
     }//GEN-LAST:event_jButtonSendActionPerformed
-
+    
     private void jTextFieldWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldWriteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldWriteActionPerformed
-
+    
     private void jButtonConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConnectActionPerformed
         String userID = jTextFieldUserName.getText();
         String CONNECT = "CONNECT#" + userID;
         jLabelBrugerNavn.setText(userID);
-        echo.send(CONNECT);
+        chat.send(CONNECT);
         System.out.println(CONNECT);
         jButtonConnect.setEnabled(false);
         jButtonSend.setEnabled(true);
         jButtonDisconnect.setEnabled(true);
         jTextFieldUserName.setText("");
-
-
+        
     }//GEN-LAST:event_jButtonConnectActionPerformed
-
+    
     private void jButtonDisconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDisconnectActionPerformed
         String bruger;
         bruger = jLabelBrugerNavn.getText();
         String CLOSE = "CLOSE#" + bruger;
-        echo.send(CLOSE);
-
+        chat.send(CLOSE);
+        
         jButtonConnect.setEnabled(true);
         jButtonSend.setEnabled(false);
         jButtonDisconnect.setEnabled(false);
+        jLabelBrugerNavn.setText("");
+        
     }//GEN-LAST:event_jButtonDisconnectActionPerformed
 
     /**
@@ -292,9 +292,9 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
     public void messageArrived(String data) {
         if (data.startsWith("ONLINE#")) {
             String tmp = data.substring(7);
-
+            
             String[] names = tmp.split(",");
-
+            
             StringBuilder res = new StringBuilder();
             for (String name : names) {
                 res.append(name);
@@ -304,9 +304,9 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
         }
         if (data.startsWith("OFFLINE#")) {
             String tmp = data.substring(8);
-
+            
             String[] names = tmp.split(",");
-
+            
             StringBuilder res = new StringBuilder();
             for (String name : names) {
                 res.append(name);
@@ -314,8 +314,8 @@ public class GUI extends javax.swing.JFrame implements EchoListener {
             }
             jTextAreaOnlineList.setText(res.toString());
         }
-
+        
         jTextAreaMessages.append(data + "\n");
     }
-
+    
 }
