@@ -58,7 +58,7 @@ public class ClientHandler extends Thread {
         writer.flush();
     }
 
-    private void handleMessage(String msg) {
+    public void handleMessage(String msg) {
         String arr[] = msg.split("#");
         String token = arr[0];
 
