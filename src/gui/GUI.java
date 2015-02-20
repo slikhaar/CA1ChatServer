@@ -20,6 +20,8 @@ public class GUI extends javax.swing.JFrame implements ChatListener {
     
     ChatClient chat;
     
+  
+    
     public GUI() throws IOException {
         initComponents();
         chat = new ChatClient();
@@ -56,6 +58,11 @@ public class GUI extends javax.swing.JFrame implements ChatListener {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jButtonSend.setText("Send");
         jButtonSend.addActionListener(new java.awt.event.ActionListener() {
@@ -229,6 +236,13 @@ public class GUI extends javax.swing.JFrame implements ChatListener {
         jLabelBrugerNavn.setText("");
         
     }//GEN-LAST:event_jButtonDisconnectActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        String bruger;
+        bruger = jLabelBrugerNavn.getText();
+        String CLOSE = "CLOSE#" + bruger;
+        chat.send(CLOSE);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

@@ -1,0 +1,24 @@
+Feb 20, 2015 12:41:20 PM chatserver.ChatServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+Feb 20, 2015 12:41:24 PM chatserver.ChatServer runServer
+INFO: Connected to a client
+Feb 20, 2015 12:41:26 PM chatserver.ChatServer runServer
+INFO: Connected to a client
+Feb 20, 2015 12:41:30 PM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#HEJ 
+Feb 20, 2015 12:41:30 PM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#HEJ 
+Feb 20, 2015 12:41:32 PM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#BEF 
+Feb 20, 2015 12:41:32 PM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#BEF 
+Feb 20, 2015 12:41:34 PM chatserver.ClientHandler run
+INFO: Received the message: CLOSE#BEF 
+Feb 20, 2015 12:41:48 PM chatserver.ChatServer runServer
+INFO: Connected to a client
+Feb 20, 2015 12:41:49 PM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#SDS 
+Feb 20, 2015 12:41:49 PM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#SDS 
+Feb 20, 2015 12:41:56 PM chatserver.ClientHandler run
+INFO: Received the message: CLOSE#SDS 
