@@ -1,0 +1,20 @@
+Feb 23, 2015 11:20:31 AM chatserver.ChatServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+Feb 23, 2015 11:20:38 AM chatserver.ChatServer runServer
+INFO: Connected to a client
+Feb 23, 2015 11:20:42 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+Feb 23, 2015 11:20:42 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#MUS 
+Feb 23, 2015 11:20:46 AM chatserver.ChatServer runServer
+INFO: Connected to a client
+Feb 23, 2015 11:20:55 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#GRIS 
+Feb 23, 2015 11:20:55 AM chatserver.ClientHandler run
+INFO: Received the message: CONNECT#GRIS 
+Feb 23, 2015 11:21:00 AM chatserver.ClientHandler run
+INFO: Received the message: SEND#*#HEJ 
+Feb 23, 2015 11:21:10 AM chatserver.ClientHandler run
+INFO: Received the message: SEND#GRIS#HEJ 
+Feb 23, 2015 12:33:54 PM chatserver.ClientHandler run
+INFO: Received the message: CLOSE#GRIS 

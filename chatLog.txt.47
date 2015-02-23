@@ -1,0 +1,6 @@
+Feb 20, 2015 3:59:16 PM chatserver.ChatServer runServer
+INFO: Sever started. Listening on: 9090, bound to: localhost
+Feb 20, 2015 3:59:26 PM chatserver.ChatServer runServer
+INFO: Connected to a client
+Feb 20, 2015 3:59:28 PM chatserver.ClientHandler run
+INFO: Received the message: CLOSE# 

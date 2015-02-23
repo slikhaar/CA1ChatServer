@@ -84,11 +84,11 @@ public class ChatServer {
                 System.out.println("Waiting for client to connect");
                 Socket socket = serverSocket.accept(); //Important Blocking call
                 Logger.getLogger(ChatServer.class.getName()).log(Level.INFO, "Connected to a client");
-                ClientHandler client = new ClientHandler(socket);
-//                clientHandlers.add(client);                
+                ClientHandler client = new ClientHandler(socket);             
                 client.start();
 
             } while (keepRunning);
+            
         } catch (IOException ex) {
             Logger.getLogger(ChatServer.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
